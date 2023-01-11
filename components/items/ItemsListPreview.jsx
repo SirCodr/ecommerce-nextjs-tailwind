@@ -11,7 +11,7 @@ const ItemsListPreview = () => {
   }
 
   return (
-    <div className="flex flex-col gap-5 px-3 w-full sm:flex-row sm:flex-wrap sm:px-0">
+    <div className="flex flex-col gap-5 w-full sm:flex-row sm:flex-wrap sm:px-0">
       {Object.keys(data).map((avocadoId) => {
         const { image, name, price } = data[avocadoId]
         return (
