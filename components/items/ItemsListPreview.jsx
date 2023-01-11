@@ -30,7 +30,7 @@ const ItemsListPreview = () => {
 
 const ItemPreview = ({ id, image, name, price }) => {
   return (
-    <Link href={'product/' + id} className="w-full sm:w-[48%] border-gray-300 border-2 rounded-xl overflow-hidden">
+    <Link href={'product/' + id} className="w-full sm:w-[48%] hover:transform hover:-translate-y-1 border-gray-300 border-2 rounded-xl overflow-hidden">
       <Image
         className="w-full h-auto"
         src={image}
