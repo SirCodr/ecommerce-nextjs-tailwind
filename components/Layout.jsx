@@ -6,7 +6,7 @@ const Layout = ({ children }) => {
       <div className="h-auto">
         <Header />
       </div>
-      <div className="w-full flex flex-col px-0 pb-5 sm:px-32">
+      <div className="w-full flex flex-col px-4 pb-5 sm:px-32">
         { children }
       </div>
     </div>
