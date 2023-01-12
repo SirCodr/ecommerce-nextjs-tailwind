@@ -3,7 +3,11 @@ const { createContext, useContext, useState } = require("react");
 const CartContext = createContext()
 
 const CartContextProvider = ({ children }) => {
-  const [cart, setCart] = useState([])
+  /***
+   * @name cart
+   * @param {Map<String, number>}
+   */
+  const [cart, setCart] = useState(new Map())
 
   return (
     <CartContext.Provider value={{cart, setCart}}>
