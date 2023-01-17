@@ -5,7 +5,8 @@ const CartContext = createContext()
 const CartContextProvider = ({ children }) => {
   /***
    * @name cart
-   * @param {Map<String, number>}
+   * @param cart.cantidad number
+   * @param cart.item Object
    */
   const [cart, setCart] = useState({})
 
