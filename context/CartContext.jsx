@@ -7,7 +7,7 @@ const CartContextProvider = ({ children }) => {
    * @name cart
    * @param {Map<String, number>}
    */
-  const [cart, setCart] = useState(new Map())
+  const [cart, setCart] = useState({})
 
   return (
     <CartContext.Provider value={{cart, setCart}}>

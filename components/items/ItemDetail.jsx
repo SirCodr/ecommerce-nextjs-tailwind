@@ -2,8 +2,8 @@ import useItemDetail from "hooks/useItemDetail"
 import Image from "next/image"
 
 const ItemDetail = ({ avocado }) => {
-  const { image, name, price, sku, id } = avocado
-  const { cantidad, handleChange, handleSubmit } = useItemDetail(id)
+  const { image, name, price, sku } = avocado
+  const { cantidad, handleChange, handleSubmit } = useItemDetail(avocado)
 
   return (
     <main className="flex flex-col">

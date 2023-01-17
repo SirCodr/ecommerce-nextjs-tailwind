@@ -1,7 +1,7 @@
 import { useCartContext } from "@context/CartContext"
 import { useCallback, useMemo, useState } from "react"
 
-const useItemDetail = (avocadoId) => {
+const useItemDetail = (avocado) => {
   const CANTIDAD_MINIMA = useMemo(() => 1, [])
   const CANTIDAD_MAXIMA = useMemo(() => 10, [])
 
@@ -9,30 +9,50 @@ const useItemDetail = (avocadoId) => {
   const { cart, setCart } = useCartContext()
 
   const handleSubmit = useCallback(() => {
-    const cartDraft = new Map(cart)
+    let cartDraft = {...cart}
 
     if(!isCantidadCorrect(cantidad)){
       return
     }
 
-    if (!cart.size) {
-      cartDraft.set(avocadoId, cantidad)
+    const cartSize = Object.keys(cartDraft).length
+
+    if (!cartSize) {
+      cartDraft = {
+          ...cartDraft,
+          [avocado.id]: {
+            item: avocado,
+            cantidad
+          }
+        }
     }
 
-    if (cart.size) {
-      const previousCantidad = cartDraft.get(avocadoId)
+    if (cartSize) {
+      const previousItem = cartDraft[avocado.id]
 
-      if (previousCantidad) {
-        cartDraft.set(avocadoId, (previousCantidad + cantidad))
+      if (previousItem) {
+        cartDraft = {
+          ...cartDraft,
+          [avocado.id]: {
+            ...cartDraft[avocado.id],
+            cantidad: previousItem.cantidad + cantidad
+          }
+        }
       }
 
-      if (!previousCantidad) {
-        cartDraft.set(avocadoId, cantidad)
+      if (!previousItem) {
+        cartDraft = {
+          ...cartDraft,
+          [avocado.id]: {
+            item: avocado,
+            cantidad: cantidad
+          }
+        }
       }
     }
 
     setCart(cartDraft)
-  }, [cantidad, avocadoId, cart])
+  }, [cantidad, avocado.id, cart])
 
   const handleChange = useCallback(
     (event) => {
