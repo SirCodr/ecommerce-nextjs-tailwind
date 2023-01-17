@@ -15,7 +15,7 @@ const Header = () => {
             <span>Avo Store</span>
           </Link>
         </div>
-        <Link href='cart' className="flex items-center p-2 gap-x-2 hover:bg-gray-100">
+        <Link href='/cart' className="flex items-center p-2 gap-x-2 hover:bg-gray-100">
           <Canasta />
           Canasta ({Object.keys(cart).length})
         </Link>
