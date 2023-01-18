@@ -35,8 +35,8 @@ const ItemPreview = ({ id, image, name, price }) => {
         className="w-full h-auto"
         src={image}
         alt={name + " image"}
-        width={100}
-        height={100}
+        width={333}
+        height={333}
       />
       <strong>{name}</strong>
       <span>{price}</span>

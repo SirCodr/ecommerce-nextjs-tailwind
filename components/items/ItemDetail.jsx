@@ -13,8 +13,8 @@ const ItemDetail = ({ avocado }) => {
             className="w-3/5"
             src={image}
             alt={name + " image"}
-            width={100}
-            height={100}
+            width={333}
+            height={333}
           />
         </div>
         <div className="flex flex-col gap-y-3 justify-center px-4">

@@ -10,8 +10,8 @@ const CartSummary = ({ props }) => {
         <Image
           src={image}
           alt={name + " image"}
-          width={100}
-          height={100}
+          width={333}
+          height={333}
           className="w-80"
         />
       </div>
