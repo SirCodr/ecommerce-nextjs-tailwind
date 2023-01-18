@@ -6,53 +6,15 @@ const useItemDetail = (avocado) => {
   const CANTIDAD_MAXIMA = useMemo(() => 10, [])
 
   const [cantidad, setCantidad] = useState(() => 0)
-  const { cart, setCart } = useCartContext()
+  const { cart, addCart } = useCartContext()
 
-  const handleSubmit = useCallback(() => {
-    let cartDraft = {...cart}
-
-    if(!isCantidadCorrect(cantidad)){
+  const handleSubmit = () => {
+    if (!isCantidadCorrect(cantidad)) {
       return
     }
-
-    const cartSize = Object.keys(cartDraft).length
-
-    if (!cartSize) {
-      cartDraft = {
-          ...cartDraft,
-          [avocado.id]: {
-            item: avocado,
-            cantidad
-          }
-        }
-    }
-
-    if (cartSize) {
-      const previousItem = cartDraft[avocado.id]
-
-      if (previousItem) {
-        cartDraft = {
-          ...cartDraft,
-          [avocado.id]: {
-            ...cartDraft[avocado.id],
-            cantidad: previousItem.cantidad + cantidad
-          }
-        }
-      }
-
-      if (!previousItem) {
-        cartDraft = {
-          ...cartDraft,
-          [avocado.id]: {
-            item: avocado,
-            cantidad: cantidad
-          }
-        }
-      }
-    }
-
-    setCart(cartDraft)
-  }, [cantidad, avocado.id, cart])
+    
+    addCart(cantidad, avocado)
+  }
 
   const handleChange = useCallback(
     (event) => {
