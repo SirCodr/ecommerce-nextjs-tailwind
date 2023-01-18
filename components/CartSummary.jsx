@@ -1,8 +1,9 @@
+import { useCartContext } from "@context/CartContext"
 import Image from "next/image"
 
 const CartSummary = ({ props }) => {
-  console.log(props)
-  const { image, name, cantidad, price } = props
+  const { image, name, cantidad, price, id } = props
+  const { removeItem } = useCartContext()
   return (
     <div className="flex flex-col w-full border-t-2 border-t-gray-300 first:border-t-0">
       <div className="w-full flex justify-center">
@@ -18,7 +19,8 @@ const CartSummary = ({ props }) => {
       <span className="text-gray-500">
         {cantidad} x {price}
       </span>
-      <button className="flex items-center justify-center border-gray-300 border-2 rounded ml-auto px-2 py-1 h-7 w-8">
+      <button className="flex items-center justify-center border-gray-300 border-2 rounded ml-auto px-2 py-1 h-7 w-8"
+      onClick={()=>removeItem(id)}>
         X
       </button>
     </div>
