@@ -7,10 +7,10 @@ const ItemDetail = ({ avocado }) => {
 
   return (
     <main className="flex flex-col">
-      <section className="flex flex-col">
+      <section className="flex flex-col sm:flex-row">
         <div className="flex justify-center w-full">
           <Image
-            className="w-3/5"
+            className="w-3/5 sm:w-full"
             src={image}
             alt={name + " image"}
             width={333}
