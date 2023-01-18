@@ -2,7 +2,7 @@ import ItemsListPreview from "./items/ItemsListPreview"
 
 const Home = () => {
   return (
-    <div className="w-full flex flex-col gap-y-4 sm:max-w-2xl mt-10">
+    <div className="w-full flex flex-col gap-y-4 mt-10">
       <h1 className="flex justify-center w-full text-4xl font-semibold">Platzi Avo</h1>
       <div className="w-full flex flex-col gap-y-8">
         <section className="text-center">
